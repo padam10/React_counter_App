@@ -2,24 +2,27 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    count: 7
+    count: 0
   };
 
   render() {
-    let classes = "badge m-2 badge-";
-    classes += this.state.count === 0 ? "warning" : "primary";
-
     return (
       <div>
-        <span className={classes}>{this.formatCount()}</span>
-        <button className="btn btn-secondary btn-sm">Counter</button>
+        <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
+        <button className="btn btn-secondary btn-sm">Increment</button>
       </div>
     );
   }
 
+  getBadgeClasses() {
+    let classes = "badge m-2 badge-";
+    classes += this.state.count === 0 ? "warning" : "primary";
+    return classes;
+  }
+
   formatCount() {
     const { count } = this.state;
-    return count === 0 ? <h3>Zero</h3> : count;
+    return count === 0 ? <h6>Zero</h6> : count;
   }
 }
 export default Counter;
