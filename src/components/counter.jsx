@@ -34,4 +34,5 @@ class Counter extends Component {
     return count === 0 ? <h6>Zero</h6> : count;
   }
 }
+
 export default Counter;
